@@ -8,7 +8,7 @@ export default function MyKeyboard() {
     const [firstNumber, setFirstNumber] = React.useState("");
     const [secondNumber, setSecondNumber] = React.useState("");
     const [operation, setOperation] = React.useState("");
-    const [result, setResult] = React.useState<Number | null>(null);
+    const [result, setResult] = React.useState<number | null>(null);
 
     const handleNumberPress = (buttonValue: string) => {
         if (firstNumber.length < 10) {
@@ -55,14 +55,14 @@ export default function MyKeyboard() {
 
     const firstNumberDisplay = () => {
         /*
-
         Venz: There's an error in 'result < 99999'
+        */
 
         if (result !== null) {
             return <Text style={result < 99999 ? [Styles.screenFirstNumber, {color: myColors.result}] : [Styles.screenFirstNumber, {fontSize: 50, color: myColors.result}]}>{result?.toString()}</Text>
         }
 
-        */
+        
        
         if (firstNumber && firstNumber.length < 6) {
             return <Text style={Styles.screenFirstNumber}>{firstNumber}</Text>;
@@ -109,21 +109,21 @@ export default function MyKeyboard() {
         <Button title="+" isGray onPress={() => handleOperationPress("/")} />
     </View>
     <View style={Styles.row}>
-        <Button title="7" onPress={() => handleNumberPress("7")} />
-        <Button title="8" onPress={() => handleNumberPress("8")} />
-        <Button title="9" onPress={() => handleNumberPress("9")} />
+        <Button title="7" isLight onPress={() => handleNumberPress("7")} />
+        <Button title="8" isLight onPress={() => handleNumberPress("8")} />
+        <Button title="9" isLight onPress={() => handleNumberPress("9")} />
         <Button title="*" isBlue onPress={() => handleOperationPress("*")} />
     </View>
     <View style={Styles.row}>
-        <Button title="4" onPress={() => handleNumberPress("4")} />
-        <Button title="5" onPress={() => handleNumberPress("5")} />
-        <Button title="6" onPress={() => handleNumberPress("6")} />
+        <Button title="4" isLight onPress={() => handleNumberPress("4")} />
+        <Button title="5" isLight onPress={() => handleNumberPress("5")} />
+        <Button title="6" isLight onPress={() => handleNumberPress("6")} />
         <Button title="-" isBlue onPress={() => handleOperationPress("-")} />
     </View>
     <View style={Styles.row}>
-        <Button title="1" onPress={() => handleNumberPress("1")} />
-        <Button title="2" onPress={() => handleNumberPress("2")} />
-        <Button title="3" onPress={() => handleNumberPress("3")} />
+        <Button title="1" isLight onPress={() => handleNumberPress("1")} />
+        <Button title="2" isLight onPress={() => handleNumberPress("2")} />
+        <Button title="3" isLight onPress={() => handleNumberPress("3")} />
         <Button title="+" isBlue onPress={() => handleOperationPress("+")} />
     </View>
     <View style={Styles.row}>

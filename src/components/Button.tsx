@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { TouchableOpacity } from "react-native";
+import { TouchableOpacity, Text } from "react-native";
 import { ThemeContext } from "../context/ThemeContext";
 import { Styles } from "../styles/GlobalStyles";
 
@@ -8,9 +8,11 @@ interface ButtonProps {
     title: string;
     isBlue?: boolean;
     isGray?: boolean;
+    isLight?: boolean;
+    isDark?: boolean;
 }
 
-export default function Button({ title, onPress, isBlue, isGray }: ButtonProps) {
+export default function Button({ title, onPress, isBlue, isGray, isLight, isDark }: ButtonProps) {
     const theme = useContext(ThemeContext);
     return (
         <TouchableOpacity
@@ -19,12 +21,18 @@ export default function Button({ title, onPress, isBlue, isGray }: ButtonProps) 
                 ? Styles.btnBlue
                 : isGray
                 ? Styles.btnGray
-                : theme === "light"
+                : isLight
                 ? Styles.btnLight
-                : Styles.bntDark
+                : isDark
+                ? Styles.btnDark
+                : Styles.btnLight
             }
-            onPress={onPress}>
-            
+            onPress={onPress}
+            >
+            <Text style={
+              {fontSize: 19, fontWeight: "bold"}
+              
+            }>{title}</Text>
         </TouchableOpacity>
     )
 }

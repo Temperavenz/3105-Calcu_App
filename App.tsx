@@ -7,15 +7,18 @@ import Button from './src/components/Button'
 import MyKeyboard from './src/components/MyKeyboard';
 
 export default function App() {
-  const [theme, setTheme] = useState('light');
+  const [isEnabled, setIsEnabled] = useState(false);
+  const [theme, setTheme] = useState('light')
+
+  const toggleSwitch = () => { setIsEnabled(previousState => !previousState) };
+  console.log("Current state is!! ", {isEnabled})
   return (
     <ThemeContext.Provider value={theme}>
-      <SafeAreaView style={theme == 'light' ? styles.container : [styles.container, {backgroundColor: '#000'}]}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+      <SafeAreaView style={styles.container}>
         <StatusBar style="auto" />
         <Switch
-          value={theme === 'light'}
-          onValueChange={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+          value={isEnabled}
+          onValueChange={toggleSwitch}
         />
         <MyKeyboard />
       </SafeAreaView>
