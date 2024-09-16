@@ -11,7 +11,6 @@ export default function App() {
   const [theme, setTheme] = useState('light')
 
   const toggleSwitch = () => { setIsEnabled(previousState => !previousState) };
-  console.log("Current state is!! ", {isEnabled})
   return (
     <ThemeContext.Provider value={theme}>
       <SafeAreaView style={styles.container}>

@@ -17,8 +17,15 @@ export default function MyKeyboard() {
     };
     const handleOperationPress = (buttonValue: string) => {
         setOperation(buttonValue);
-        setSecondNumber(firstNumber);
-        setFirstNumber("");
+
+        if(firstNumber === "" && result !== null){
+            setSecondNumber(result.toString());
+            setResult(null);
+        }
+        else{
+            setSecondNumber(firstNumber)
+            setFirstNumber("");
+        }
     };
 
     const clear = () => {
