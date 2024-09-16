@@ -48,24 +48,40 @@ export default function MyKeyboard() {
     switch (operation) {
       case "+":
         clear();
-        setResult(parseInt(secondNumber) + parseInt(firstNumber));
+        setResult(
+          parseFloat(
+            (parseFloat(secondNumber) + parseFloat(firstNumber)).toFixed(5)
+          )
+        );
         break;
       case "-":
         clear();
-        setResult(parseInt(secondNumber) - parseInt(firstNumber));
+        setResult(
+          parseFloat(
+            (parseFloat(secondNumber) - parseFloat(firstNumber)).toFixed(5)
+          )
+        );
         break;
       case "*":
         clear();
-        setResult(parseInt(secondNumber) * parseInt(firstNumber));
+        setResult(
+          parseFloat(
+            (parseFloat(secondNumber) * parseFloat(firstNumber)).toFixed(5)
+          )
+        );
         break;
       case "/":
         clear();
-        setResult(parseInt(secondNumber) / parseInt(firstNumber));
+        setResult(
+          parseFloat(
+            (parseFloat(secondNumber) / parseFloat(firstNumber)).toFixed(5)
+          )
+        );
         break;
       default:
         clear();
         if (result === null) {
-          setResult(parseInt(firstNumber));
+          setResult(parseFloat(firstNumber));
         } else {
           setResult(result);
         }
@@ -139,7 +155,7 @@ export default function MyKeyboard() {
           onPress={() => handleOperationPress("+/-")}
         />
         <Button title="%" isGray onPress={() => handleOperationPress("%")} />
-        <Button title="+" isGray onPress={() => handleOperationPress("/")} />
+        <Button title="/" isGray onPress={() => handleOperationPress("/")} />
       </View>
       <View style={Styles.row}>
         <Button title="7" isLight onPress={() => handleNumberPress("7")} />
