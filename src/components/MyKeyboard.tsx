@@ -78,6 +78,17 @@ export default function MyKeyboard() {
           )
         );
         break;
+      case "%":
+        clear();
+        setResult(
+          parseFloat(
+            (
+              (parseFloat(secondNumber) / 100) *
+              parseFloat(firstNumber)
+            ).toFixed(5)
+          )
+        );
+        break;
       default:
         clear();
         if (result === null) {
